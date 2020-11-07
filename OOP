@@ -1,0 +1,28 @@
+import java.util.Random;
+import java.util.Scanner;
+public class Letters {
+    public static void main(String[] args) {
+        Scanner scanner= new Scanner(System.in);
+        Random random= new Random();
+
+        while (true){
+            System.out.print("Строка:");
+            String s =scanner.nextLine();
+            if (s.isEmpty())
+                break;
+
+        for (String w : s.split("\\s+")) {
+            char[] b = w.toCharArray();
+            for (int i = 1; i < b.length - 1; i++) {
+                int j = random.nextInt(b.length - 2) + 1;
+                char t = b[i];
+                b[i] = b[j];
+                b[j] = t;
+            }
+            System.out.print(new String(b)+" ");
+        }
+        System.out.println();
+        }
+        scanner.close();
+    }
+}
